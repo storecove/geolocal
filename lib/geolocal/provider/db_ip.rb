@@ -43,8 +43,8 @@ class Geolocal::Provider::DB_IP < Geolocal::Provider::Base
     # doc = Nokogiri::HTML(page)
     # href = URI doc.css('a.btn-primary').attr('href').to_s
 
-    elem = page.match(/<a\b[^>]*class=['"][^'"]*btn-primary[^>]*>/) or
-      raise "no <a class='btn-primary'> element found in #{START_URL}"
+    elem = page.match(/<a\b[^>]*id=['"][^'"]*free_download_link[^>]*>/) or
+      raise "no <a id='free_download_link'> element found in #{START_URL}"
     attr = elem.to_s.match(/href=['"]([^'"]+)['"]/) or raise "no href found in #{elem}"
     href = URI attr[1]
 
